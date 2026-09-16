@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practice Test — The One Education</title>
+<meta name="description" content="Generate a full-length practice paper for your exam.">
+
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('toe-theme');
+      var dark = saved ? saved === 'dark'
+                       : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.classList.toggle('dark', dark);
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="/assets/js/theme.js"></script>
+<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body class="bg-white dark:bg-ink-950 text-ink-800 dark:text-ink-200 font-sans antialiased">
+
+<div id="site-header"></div>
+
+<main class="flex-1 w-full">
+
+  <!-- ============ SETUP ============ -->
+  <section id="setupScreen" class="mx-auto max-w-content px-5 py-12">
+
+    <header class="max-w-xl">
+      <h1 class="font-display font-bold text-3xl sm:text-4xl text-ink-900 dark:text-white">
+        Build your practice paper
+      </h1>
+      <p class="mt-3 text-ink-500 dark:text-ink-400 leading-relaxed">
+        Choose an exam and leave subject and topic on <em>All</em> for a full-syllabus
+        paper. Narrow either one to focus your practice.
+      </p>
+    </header>
+
+    <div class="mt-10 rounded-2xl border border-ink-200/80 dark:border-ink-800
+                bg-white dark:bg-ink-900/40 p-6 sm:p-8">
+
+      <!-- Every selector visible at once -->
+      <div class="grid gap-5 sm:grid-cols-2">
+
+        <div>
+          <label for="categorySelect" class="block text-sm font-medium text-ink-700 dark:text-ink-200 mb-2">
+            Sector
+          </label>
+          <select id="categorySelect" class="w-full rounded-xl border border-ink-200 dark:border-ink-700
+                 bg-white dark:bg-ink-900 text-ink-900 dark:text-white
+                 px-4 py-3 text-[15px]"></select>
+        </div>
+
+        <div>
+          <label for="organizationSelect" class="block text-sm font-medium text-ink-700 dark:text-ink-200 mb-2">
+            Organization
+          </label>
+          <select id="organizationSelect" disabled class="w-full rounded-xl border border-ink-200 dark:border-ink-700
+                 bg-white dark:bg-ink-900 text-ink-900 dark:text-white
+                 px-4 py-3 text-[15px]"></select>
+        </div>
+
+        <div>
+          <label for="examSelect" class="block text-sm font-medium text-ink-700 dark:text-ink-200 mb-2">
+            Exam
+          </label>
+          <select id="examSelect" disabled class="w-full rounded-xl border border-ink-200 dark:border-ink-700
+                 bg-white dark:bg-ink-900 text-ink-900 dark:text-white
+                 px-4 py-3 text-[15px]"></select>
+        </div>
+
+        <div>
+          <label for="stageSelect" class="block text-sm font-medium text-ink-700 dark:text-ink-200 mb-2">
+            Stage / Tier
+            <span class="text-ink-400 dark:text-ink-500 font-normal">— where applicable</span>
+          </label>
+          <select id="stageSelect" disabled class="w-full rounded-xl border border-ink-200 dark:border-ink-700
+                 bg-white dark:bg-ink-900 text-ink-900 dark:text-white
+                 px-4 py-3 text-[15px]"></select>
+        </div>
+
+        <div>
+          <label for="subjectSelect" class="block text-sm font-medium text-ink-700 dark:text-ink-200 mb-2">
+            Subject
+          </label>
+          <select id="subjectSelect" disabled class="w-full rounded-xl border border-ink-200 dark:border-ink-700
+                 bg-white dark:bg-ink-900 text-ink-900 dark:text-white
+                 px-4 py-3 text-[15px]"></select>
+        </div>
+
+        <div>
+          <label for="topicSelect" class="block text-sm font-medium text-ink-700 dark:text-ink-200 mb-2">
+            Topic
+          </label>
+          <select id="topicSelect" disabled class="w-full rounded-xl border border-ink-200 dark:border-ink-700
+                 bg-white dark:bg-ink-900 text-ink-900 dark:text-white
+                 px-4 py-3 text-[15px]"></select>
+        </div>
+
+      </div>
+
+      <div class="mt-7 grid gap-6 sm:grid-cols-2">
+        <div>
+          <span class="block text-sm font-medium text-ink-700 dark:text-ink-200 mb-2">Difficulty</span>
+          <div id="levelRow" class="grid grid-cols-3 gap-2"></div>
+        </div>
+        <div>
+          <span class="block text-sm font-medium text-ink-700 dark:text-ink-200 mb-2">Questions</span>
+          <div id="countRow" class="grid grid-cols-3 gap-2"></div>
+        </div>
+      </div>
+
+      <div id="scopeSummary"
+           class="mt-7 rounded-xl bg-ink-50 dark:bg-ink-900/60 px-4 py-3
+                  text-sm text-ink-600 dark:text-ink-300"></div>
+
+      <button id="generateBtn" disabled
+              class="mt-6 w-full sm:w-auto inline-flex items-center justify-center gap-2.5
+                     px-7 py-4 rounded-xl bg-ink-900 dark:bg-amber-500
+                     text-white dark:text-ink-950 font-medium text-[15px]
+                     hover:bg-ink-800 dark:hover:bg-amber-400
+                     disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+        Generate paper
+      </button>
+
+      <div id="errorBox"
+           class="mt-5 hidden rounded-xl border border-rose-300 dark:border-rose-800
+                  bg-rose-50 dark:bg-rose-950/40 px-4 py-3
+                  text-sm text-rose-700 dark:text-rose-300"></div>
+
+    </div>
+  </section>
+
+  <!-- ============ LOADING ============ -->
+  <section id="loadingScreen" class="hidden mx-auto max-w-content px-5 py-24 text-center">
+    <div class="mx-auto w-10 h-10 rounded-full border-[3px] border-ink-200 dark:border-ink-700
+                border-t-amber-500 animate-spin"></div>
+    <p class="mt-6 font-display font-semibold text-lg text-ink-900 dark:text-white">
+      Writing your paper
+    </p>
+    <p id="loadingNote" class="mt-2 text-sm text-ink-500 dark:text-ink-400"></p>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section id="quizScreen" class="hidden">
+
+    <!-- Sticky progress bar -->
+    <div class="sticky top-16 z-30 border-b border-ink-200/70 dark:border-ink-800
+                bg-white/90 dark:bg-ink-950/90 backdrop-blur-md">
+      <div class="mx-auto max-w-content px-5 py-3">
+        <div class="flex items-center justify-between gap-4 text-sm">
+          <p id="quizMeta" class="truncate text-ink-500 dark:text-ink-400"></p>
+          <p id="progressText" class="shrink-0 font-medium text-ink-900 dark:text-white"></p>
+        </div>
+        <div class="progress-track mt-2">
+          <div id="progressFill" class="progress-fill" style="width:0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-content px-5 py-10">
+      <div id="questionList" class="space-y-5"></div>
+
+      <!-- Score, shown at the bottom once every question is answered -->
+      <div id="scoreCard" class="hidden mt-12 animate-fade-up">
+        <div class="rounded-2xl border border-ink-200/80 dark:border-ink-800
+                    bg-ink-50/70 dark:bg-ink-900/50 p-8 text-center">
+          <p class="text-sm font-medium tracking-wide text-ink-500 dark:text-ink-400">
+            Your score
+          </p>
+          <p id="scoreValue" class="mt-2 font-display font-bold text-5xl text-ink-900 dark:text-white"></p>
+          <p id="scorePercent" class="mt-2 text-ink-500 dark:text-ink-400"></p>
+          <p id="scoreRemark" class="mt-4 text-sm text-ink-600 dark:text-ink-300"></p>
+        </div>
+
+        <!-- Left: home. Right: another quiz. -->
+        <div class="mt-5 grid grid-cols-2 gap-3">
+          <a href="/"
+             class="inline-flex items-center justify-center gap-2 px-5 py-4 rounded-xl
+                    border border-ink-300 dark:border-ink-700
+                    text-ink-800 dark:text-ink-100 font-medium text-[15px]
+                    hover:bg-ink-100 dark:hover:bg-ink-800 transition-colors">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 11l9-8 9 8M5 10v10h14V10"/>
+            </svg>
+            Go to home
+          </a>
+          <button id="anotherQuizBtn"
+             class="inline-flex items-center justify-center gap-2 px-5 py-4 rounded-xl
+                    bg-ink-900 dark:bg-amber-500 text-white dark:text-ink-950
+                    font-medium text-[15px]
+                    hover:bg-ink-800 dark:hover:bg-amber-400 transition-colors">
+            Take another quiz
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="/assets/js/api.js"></script>
+<script src="/assets/js/components/chrome.js"></script>
+<script src="/assets/js/quiz.js"></script>
+</body>
+</html>
