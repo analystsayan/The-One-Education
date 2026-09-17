@@ -31,14 +31,14 @@ const config = {
   },
 
   quiz: {
-    allowedCounts: [50, 100, 200],
+    allowedCounts: [25, 50, 100],
     allowedLevels: ['Easy', 'Medium', 'Hard'],
     // Large quizzes are generated in batches — one API call per batch.
     batchSize: 25,
     // How many batches run at the same time. Kept low so the free-tier
     // requests-per-minute limit isn't tripped.
     batchConcurrency: 2,
-    maxCount: 200
+    maxCount: 100
   }
 };
 
