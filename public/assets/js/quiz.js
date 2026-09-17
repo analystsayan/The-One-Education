@@ -2,7 +2,7 @@
    Practice test page.
 
    Answer checking is entirely local: the API returns the correct answer
-   with each question, so marking a 200-question paper costs no requests.
+   with each question, so marking a 100-question paper costs no requests.
    =================================================================== */
 
 const $ = id => document.getElementById(id);
@@ -40,7 +40,7 @@ const els = {
 
 const state = {
   level: 'Medium',
-  count: 50,
+  count: 25,
   questions: [],
   answers: [],     // index chosen per question, null until answered
   score: 0

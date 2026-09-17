@@ -1,11 +1,11 @@
 /**
  * Quiz service.
  *
- * Builds a full paper (50–200 questions) by splitting the work into batches,
+ * Builds a full paper (25-100 questions) by splitting the work into batches,
  * spreading the topics across those batches, and merging the results.
  *
  * Answers are returned to the browser WITH the questions. Marking happens
- * client-side with no further network calls — a 200-question paper costs
+ * client-side with no further network calls — a 100-question paper costs
  * zero API requests to grade.
  */
 const { config } = require('../config');
@@ -24,7 +24,7 @@ function shuffle(arr) {
   return a;
 }
 
-/** Splits a total into batches of at most `size`. 200 → [25 × 8] */
+/** Splits a total into batches of at most `size`. 100 → [25 × 4] */
 function splitIntoBatches(total, size) {
   const batches = [];
   let left = total;

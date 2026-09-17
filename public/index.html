@@ -1,184 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The One Education — Practice Portal</title>
-<meta name="description" content="Free AI-generated practice papers for SSC, RRB, IBPS, UPSC, Defence and IT company recruitment exams.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The One Education — Practice Portal</title>
+  <meta name="description"
+    content="Free AI-generated practice papers for SSC, RRB, IBPS, UPSC, Defence and IT company recruitment exams.">
 
-<!-- Applied before paint so the correct theme is never flashed -->
-<script>
-  (function () {
-    try {
-      var saved = localStorage.getItem('toe-theme');
-      var dark = saved ? saved === 'dark'
-                       : window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.documentElement.classList.toggle('dark', dark);
-    } catch (e) {}
-  })();
-</script>
+  <!-- Applied before paint so the correct theme is never flashed -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('toe-theme');
+        var dark = saved ? saved === 'dark'
+          : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('dark', dark);
+      } catch (e) { }
+    })();
+  </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
 
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="/assets/js/theme.js"></script>
-<link rel="stylesheet" href="/assets/css/main.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/assets/js/theme.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 
 <body class="bg-white dark:bg-ink-950 text-ink-800 dark:text-ink-200 font-sans antialiased">
 
-<div id="site-header"></div>
+  <div id="site-header"></div>
 
-<main class="flex-1">
+  <main class="flex-1">
 
-  <!-- Hero -->
-  <section class="mx-auto max-w-content px-5 pt-20 pb-16 sm:pt-28 sm:pb-24">
-    <div class="max-w-2xl animate-fade-up">
+    <!-- Hero -->
+    <section class="mx-auto max-w-content px-5 pt-20 pb-16 sm:pt-28 sm:pb-24">
+      <div class="max-w-2xl animate-fade-up">
 
-      <p class="inline-flex items-center gap-2 px-3 py-1 rounded-full
+        <p class="inline-flex items-center gap-2 px-3 py-1 rounded-full
                 bg-amber-500/10 text-amber-600 dark:text-amber-400
                 text-xs font-medium tracking-wide">
-        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-        64 exams · 296 topics
-      </p>
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          64 exams · 296 topics
+        </p>
 
-      <h1 class="mt-6 font-display font-bold tracking-tight
+        <h1 class="mt-6 font-display font-bold tracking-tight
                  text-4xl sm:text-6xl leading-[1.05]
                  text-ink-900 dark:text-white">
-        Sit the paper<br>before you sit the exam.
-      </h1>
+          Sit the paper<br>before you sit the exam.
+        </h1>
 
-      <p class="mt-6 text-lg leading-relaxed text-ink-500 dark:text-ink-300">
-        Generate a full-length practice paper for any Indian government or
-        private-sector recruitment exam. Pick the whole syllabus or drill a
-        single topic, answer at your own pace, and see your score the moment
-        you finish.
-      </p>
+        <p class="mt-6 text-lg leading-relaxed text-ink-500 dark:text-ink-300">
+          Generate a full-length practice paper for any Indian government or
+          private-sector recruitment exam. Pick the whole syllabus or drill a
+          single topic, answer at your own pace, and see your score the moment
+          you finish.
+        </p>
 
-      <div class="mt-10">
-        <a href="/quiz"
-           class="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl
+        <div class="mt-10">
+          <a href="/quiz" class="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl
                   bg-ink-900 dark:bg-amber-500 text-white dark:text-ink-950
                   font-medium text-[15px]
                   hover:bg-ink-800 dark:hover:bg-amber-400
                   transition-colors shadow-lg shadow-ink-900/10">
-          Start a practice test
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6"/>
-          </svg>
-        </a>
+            Start a practice test
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+            </svg>
+          </a>
+        </div>
+
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- What's covered -->
+    <section class="border-t border-ink-200/70 dark:border-ink-800">
+      <div class="mx-auto max-w-content px-5 py-16">
 
-  <!-- What's covered -->
-  <section class="border-t border-ink-200/70 dark:border-ink-800">
-    <div class="mx-auto max-w-content px-5 py-16">
+        <h2 class="font-display font-semibold text-2xl text-ink-900 dark:text-white">
+          What you can practise
+        </h2>
 
-      <h2 class="font-display font-semibold text-2xl text-ink-900 dark:text-white">
-        What you can practise
-      </h2>
-
-      <div class="mt-8 grid gap-px bg-ink-200/70 dark:bg-ink-800
+        <div class="mt-8 grid gap-px bg-ink-200/70 dark:bg-ink-800
                   sm:grid-cols-2 lg:grid-cols-4 rounded-xl overflow-hidden">
 
-        <div class="bg-white dark:bg-ink-950 p-6">
-          <h3 class="font-display font-semibold text-ink-900 dark:text-white">Staff selection</h3>
-          <p class="mt-2 text-sm text-ink-500 dark:text-ink-400">
-            SSC CGL, CHSL, MTS, CPO, GD Constable, JE and Stenographer — tier by tier.
-          </p>
-        </div>
+          <div class="bg-white dark:bg-ink-950 p-6">
+            <h3 class="font-display font-semibold text-ink-900 dark:text-white">Staff selection</h3>
+            <p class="mt-2 text-sm text-ink-500 dark:text-ink-400">
+              SSC CGL, CHSL, MTS, CPO, GD Constable, JE and Stenographer — tier by tier.
+            </p>
+          </div>
 
-        <div class="bg-white dark:bg-ink-950 p-6">
-          <h3 class="font-display font-semibold text-ink-900 dark:text-white">Railways &amp; banking</h3>
-          <p class="mt-2 text-sm text-ink-500 dark:text-ink-400">
-            RRB NTPC, Group D, ALP and JE, alongside IBPS, SBI and LIC papers.
-          </p>
-        </div>
+          <div class="bg-white dark:bg-ink-950 p-6">
+            <h3 class="font-display font-semibold text-ink-900 dark:text-white">Railways &amp; banking</h3>
+            <p class="mt-2 text-sm text-ink-500 dark:text-ink-400">
+              RRB NTPC, Group D, ALP and JE, alongside IBPS, SBI and LIC papers.
+            </p>
+          </div>
 
-        <div class="bg-white dark:bg-ink-950 p-6">
-          <h3 class="font-display font-semibold text-ink-900 dark:text-white">Defence &amp; civil services</h3>
-          <p class="mt-2 text-sm text-ink-500 dark:text-ink-400">
-            Agniveer for Army, Navy and Air Force, plus UPSC CSE, CDS, NDA and CAPF.
-          </p>
-        </div>
+          <div class="bg-white dark:bg-ink-950 p-6">
+            <h3 class="font-display font-semibold text-ink-900 dark:text-white">Defence &amp; civil services</h3>
+            <p class="mt-2 text-sm text-ink-500 dark:text-ink-400">
+              Agniveer for Army, Navy and Air Force, plus UPSC CSE, CDS, NDA and CAPF.
+            </p>
+          </div>
 
-        <div class="bg-white dark:bg-ink-950 p-6">
-          <h3 class="font-display font-semibold text-ink-900 dark:text-white">IT placements</h3>
-          <p class="mt-2 text-sm text-ink-500 dark:text-ink-400">
-            TCS NQT, Infosys, Wipro, Cognizant, Accenture, Capgemini and HCLTech.
-          </p>
+          <div class="bg-white dark:bg-ink-950 p-6">
+            <h3 class="font-display font-semibold text-ink-900 dark:text-white">IT placements</h3>
+            <p class="mt-2 text-sm text-ink-500 dark:text-ink-400">
+              TCS NQT, Infosys, Wipro, Cognizant, Accenture, Capgemini and HCLTech.
+            </p>
+          </div>
+
         </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="border-t border-ink-200/70 dark:border-ink-800 bg-ink-50/60 dark:bg-ink-900/30">
+      <div class="mx-auto max-w-content px-5 py-16">
+
+        <h2 class="font-display font-semibold text-2xl text-ink-900 dark:text-white">
+          How it works
+        </h2>
+
+        <ol class="mt-8 grid gap-8 sm:grid-cols-3">
+          <li>
+            <div class="font-display text-sm font-semibold text-amber-600 dark:text-amber-400">Step one</div>
+            <h3 class="mt-1.5 font-display font-semibold text-ink-900 dark:text-white">Set your scope</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink-500 dark:text-ink-400">
+              Choose an exam and stop there for a full-syllabus paper, or narrow it
+              to one subject or a single topic.
+            </p>
+          </li>
+          <li>
+            <div class="font-display text-sm font-semibold text-amber-600 dark:text-amber-400">Step two</div>
+            <h3 class="mt-1.5 font-display font-semibold text-ink-900 dark:text-white">Pick length and level</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink-500 dark:text-ink-400">
+              30, 50 or 100 questions at easy, medium or hard difficulty —
+              written to match the real exam pattern.
+            </p>
+          </li>
+          <li>
+            <div class="font-display text-sm font-semibold text-amber-600 dark:text-amber-400">Step three</div>
+            <h3 class="mt-1.5 font-display font-semibold text-ink-900 dark:text-white">Answer and review</h3>
+            <p class="mt-2 text-sm leading-relaxed text-ink-500 dark:text-ink-400">
+              Each answer is marked instantly with a one-line explanation, and your
+              score appears at the end of the paper.
+            </p>
+          </li>
+        </ol>
 
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- How it works -->
-  <section class="border-t border-ink-200/70 dark:border-ink-800 bg-ink-50/60 dark:bg-ink-900/30">
-    <div class="mx-auto max-w-content px-5 py-16">
-
-      <h2 class="font-display font-semibold text-2xl text-ink-900 dark:text-white">
-        How it works
+    <!-- Closing CTA -->
+    <section class="mx-auto max-w-content px-5 py-20 text-center">
+      <h2 class="font-display font-semibold text-3xl text-ink-900 dark:text-white">
+        Ready when you are.
       </h2>
-
-      <ol class="mt-8 grid gap-8 sm:grid-cols-3">
-        <li>
-          <div class="font-display text-sm font-semibold text-amber-600 dark:text-amber-400">Step one</div>
-          <h3 class="mt-1.5 font-display font-semibold text-ink-900 dark:text-white">Set your scope</h3>
-          <p class="mt-2 text-sm leading-relaxed text-ink-500 dark:text-ink-400">
-            Choose an exam and stop there for a full-syllabus paper, or narrow it
-            to one subject or a single topic.
-          </p>
-        </li>
-        <li>
-          <div class="font-display text-sm font-semibold text-amber-600 dark:text-amber-400">Step two</div>
-          <h3 class="mt-1.5 font-display font-semibold text-ink-900 dark:text-white">Pick length and level</h3>
-          <p class="mt-2 text-sm leading-relaxed text-ink-500 dark:text-ink-400">
-            50, 100 or 200 questions at easy, medium or hard difficulty —
-            written to match the real exam pattern.
-          </p>
-        </li>
-        <li>
-          <div class="font-display text-sm font-semibold text-amber-600 dark:text-amber-400">Step three</div>
-          <h3 class="mt-1.5 font-display font-semibold text-ink-900 dark:text-white">Answer and review</h3>
-          <p class="mt-2 text-sm leading-relaxed text-ink-500 dark:text-ink-400">
-            Each answer is marked instantly with a one-line explanation, and your
-            score appears at the end of the paper.
-          </p>
-        </li>
-      </ol>
-
-    </div>
-  </section>
-
-  <!-- Closing CTA -->
-  <section class="mx-auto max-w-content px-5 py-20 text-center">
-    <h2 class="font-display font-semibold text-3xl text-ink-900 dark:text-white">
-      Ready when you are.
-    </h2>
-    <p class="mt-3 text-ink-500 dark:text-ink-400">
-      No sign-up. Pick an exam and begin.
-    </p>
-    <a href="/quiz"
-       class="mt-8 inline-flex items-center gap-2.5 px-7 py-4 rounded-xl
+      <p class="mt-3 text-ink-500 dark:text-ink-400">
+        No sign-up. Pick an exam and begin.
+      </p>
+      <a href="/quiz" class="mt-8 inline-flex items-center gap-2.5 px-7 py-4 rounded-xl
               bg-ink-900 dark:bg-amber-500 text-white dark:text-ink-950
               font-medium text-[15px]
               hover:bg-ink-800 dark:hover:bg-amber-400 transition-colors">
-      Start a practice test
-      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6"/>
-      </svg>
-    </a>
-  </section>
+        Start a practice test
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6l6 6-6 6" />
+        </svg>
+      </a>
+    </section>
 
-</main>
+  </main>
 
-<div id="site-footer"></div>
+  <div id="site-footer"></div>
 
-<script src="/assets/js/components/chrome.js"></script>
+  <script src="/assets/js/components/chrome.js"></script>
 </body>
+
 </html>

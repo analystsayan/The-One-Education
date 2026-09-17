@@ -122,7 +122,7 @@ toe-practice/
 
 ### Answers never need a second request
 The API returns each question's correct answer and explanation *with* the
-question. The browser stores them and marks answers locally, so a 200-question
+question. The browser stores them and marks answers locally, so a 100-question
 paper costs exactly zero API calls to grade. This is in `quiz.js` → `answer()`.
 
 ### Practise a whole exam, a subject, or one topic
@@ -138,7 +138,7 @@ Subject and topic are both optional:
 `quiz.service.js` spreads the questions across it.
 
 ### Large papers are generated in batches
-200 questions is too much for one API call, so the work is split into batches of
+100 questions is too much for one API call, so the work is split into batches of
 25 (configurable in `src/config/index.js`). Topics are rotated across batches so
 coverage is even, results are de-duplicated and shuffled.
 
@@ -158,7 +158,7 @@ Edit `src/config/index.js`:
 
 ```js
 quiz: {
-  allowedCounts: [50, 100, 200],   // buttons on the quiz page
+  allowedCounts: [25, 50, 100],   // buttons on the quiz page
   allowedLevels: ['Easy', 'Medium', 'Hard'],
   batchSize: 25,                   // questions per API call
   batchConcurrency: 2              // parallel calls — raise only on a paid tier
@@ -211,8 +211,8 @@ setting. The correct theme is applied by a small inline script in each page's
 
 Two things to plan for before opening it to students:
 
-**Quota.** Every visitor's paper draws on your single Gemini key. A 200-question
-paper is 8 API calls. The free tier's daily cap will go quickly with real
+**Quota.** Every visitor's paper draws on your single Gemini key. A 100-question
+paper is 4 API calls. The free tier's daily cap will go quickly with real
 traffic — consider caching generated papers in the database and reusing them, or
 moving to a paid tier.
 

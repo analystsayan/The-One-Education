@@ -5,10 +5,10 @@
 
 const Site = {
   name: 'The One Education',
-  domain: 'practice.theoneeducation.com',
+  domain: 'quiz-the-one-education.vercel.app',
   nav: [
     { label: 'Home',     href: '/' },
-    { label: 'Practice', href: '/quiz' }
+    { label: 'Quiz', href: '/quiz' }
   ]
 };
 
