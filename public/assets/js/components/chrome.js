@@ -5,7 +5,7 @@
 
 const Site = {
   name: 'The One Education',
-  domain: 'quiz-the-one-education.vercel.app',
+  domain: 'theoneeducation.com',
   nav: [
     { label: 'Home',     href: '/' },
     { label: 'Quiz', href: '/quiz' }
@@ -85,8 +85,8 @@ function renderFooter() {
 
         <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink-500 dark:text-ink-400">
           ${links}
-          <a href="https://theoneeducation.com" class="hover:text-ink-900 dark:hover:text-white transition-colors">
-            Main site
+          <a href="https://sayanmondal.in" class="hover:text-ink-900 dark:hover:text-white transition-colors">
+            More
           </a>
         </nav>
 
@@ -97,6 +97,12 @@ function renderFooter() {
                   text-xs text-ink-400 dark:text-ink-500">
         <p>&copy; ${year} The One Education. All rights reserved.</p>
         <p>${Site.domain}</p>
+      </div>
+
+      <div class="mt-6 text-xs text-ink-400 dark:text-ink-500"></div>
+        <p>
+          Made with ❤️ by <a href="https://www.linkedin.com/in/analystsayan" class="hover:text-ink-900 dark:hover:text-white transition-colors">Analyst Sayan</a>.
+        </p>
       </div>
     </div>
   </footer>`;
