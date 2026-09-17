@@ -10,15 +10,18 @@ const config = {
 
   site: {
     name:   process.env.SITE_NAME || 'The One Education',
-    domain: process.env.SITE_DOMAIN || 'quiz-the-one-education.vercel.app',
+    domain: process.env.SITE_DOMAIN || 'practice.theoneeducation.com'
   },
 
   db: {
     host:     process.env.DB_HOST || 'localhost',
     port:     parseInt(process.env.DB_PORT, 10) || 3306,
     user:     process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || 'Pass@123',
-    database: process.env.DB_NAME || 'mcq_app'
+    password: process.env.DB_PASSWORD || '',
+    database: process.env.DB_NAME || 'mcq_app',
+    // Aiven (and most hosted MySQL) require SSL. Set DB_SSL=false only for
+    // a plain local MySQL install with no SSL configured.
+    ssl: process.env.DB_SSL === 'false' ? undefined : { rejectUnauthorized: false }
   },
 
   gemini: {
@@ -28,14 +31,14 @@ const config = {
   },
 
   quiz: {
-    allowedCounts: [25, 50, 100],
+    allowedCounts: [50, 100, 200],
     allowedLevels: ['Easy', 'Medium', 'Hard'],
     // Large quizzes are generated in batches — one API call per batch.
     batchSize: 25,
     // How many batches run at the same time. Kept low so the free-tier
     // requests-per-minute limit isn't tripped.
     batchConcurrency: 2,
-    maxCount: 100
+    maxCount: 200
   }
 };
 
